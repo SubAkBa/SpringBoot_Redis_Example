@@ -24,8 +24,9 @@ public class BoardService {
 
     @Cacheable(value = "findOne", key = "#id")
     public Board findOne(Long id) {
-        return boardRepository.findById(id).get();
-//                .orElseThrow(() -> new UserNotFoundException("조건에 맞는 유저가 없습니다."));
+        return boardRepository
+                .findById(id)
+                .orElseThrow(() -> new UserNotFoundException("조건에 맞는 유저가 없습니다."));
     }
 
     public List<Board> findAll() {
